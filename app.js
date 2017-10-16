@@ -37,9 +37,9 @@ rl.on('close', () =>{
     const rankingArray = Array.from(map).sort((pair1,pair2)=> {
         return pair2[1].change - pair1[1].change; //正0負によって入れ替え
     });
-    const rankingStrings = rankingArray.map((pair) => { //map関数　≠　連想配列のMap
-        return pair[0] + ': ' + pair[1].popu10 + '=>' + pair[1].popu15 + ' 変化率:' + pair[1].change;
-
+    const rankingStrings = rankingArray.map((pair, i) => { //map関数　≠　連想配列のMap
+        return (i + 1)+ '位 ' + pair[0] + ': ' + pair[1].popu10 + '=>' + pair[1].popu15 + ' 変化率:' + pair[1].change;
+        //配列番号0から=>+1
     });
     console.log(rankingStrings);
 });
